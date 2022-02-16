@@ -41,7 +41,7 @@
               [ngValue]="niveauOption.id === editForm.get('niveau')!.value?.id ? editForm.get('niveau')!.value : niveauOption"
               *ngFor="let niveauOption of niveausSharedCollection; trackBy: trackNiveauById"
             >
-              {{ niveauOption.id }}
+              {{ niveauOption.id }} {{ niveauOption.libelle }}
             </option>
           </select>
         </div>

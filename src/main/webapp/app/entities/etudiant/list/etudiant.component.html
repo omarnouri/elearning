@@ -48,7 +48,7 @@
           <td>{{ etudiant.prenom }}</td>
           <td>
             <div *ngIf="etudiant.niveau">
-              <a [routerLink]="['/niveau', etudiant.niveau?.id, 'view']">{{ etudiant.niveau?.id }}</a>
+              <a [routerLink]="['/niveau', etudiant.niveau?.id, 'view']">{{ etudiant.niveau?.id }} {{ etudiant.niveau?.libelle }} </a>
             </div>
           </td>
           <td class="text-right">

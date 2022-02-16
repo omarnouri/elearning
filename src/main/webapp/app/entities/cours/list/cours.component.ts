@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,11 +10,17 @@ import { CoursDeleteDialogComponent } from '../delete/cours-delete-dialog.compon
   selector: 'e-cours',
   templateUrl: './cours.component.html',
 })
-export class CoursComponent implements OnInit {
-  cours?: ICours[];
+export class CoursComponent implements OnInit, OnChanges {
+  cours?: ICours[]  | undefined;
   isLoading = false;
+  @Input()  idMatiere!: number | undefined;
 
   constructor(protected coursService: CoursService, protected modalService: NgbModal) {}
+  ngOnChanges(changes: SimpleChanges): void {
+    if(this.idMatiere) {
+      this.cours = this.cours?.filter(el => el.matiere?.id === this.idMatiere)
+    }
+  }
 
   loadAll(): void {
     this.isLoading = true;
@@ -23,6 +29,9 @@ export class CoursComponent implements OnInit {
       (res: HttpResponse<ICours[]>) => {
         this.isLoading = false;
         this.cours = res.body ?? [];
+        if(this.idMatiere) {
+          this.cours = this.cours.filter(el => el.matiere?.id === this.idMatiere)
+        }
       },
       () => {
         this.isLoading = false;

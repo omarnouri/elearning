@@ -29,7 +29,13 @@
         <dt><span eTranslate="eLearningApp.cours.matiere">Matiere</span></dt>
         <dd>
           <div *ngIf="cours.matiere">
-            <a [routerLink]="['/matiere', cours.matiere?.id, 'view']">{{ cours.matiere?.id }}</a>
+            <a [routerLink]="['/matiere', cours.matiere?.id, 'view']">{{ cours.matiere?.id }} {{ cours.matiere?.nom }}</a>
+          </div>
+        </dd>
+        <dt *ngIf="fichers"><span >Peice jointes</span></dt>
+        <dd *ngIf="fichers">
+          <div *ngFor="let fichier of fichers">
+            <a (click)="openFile(fichier.file, fichier.fileContentType)">{{ fichier?.id }} {{ fichier?.nom }}</a>
           </div>
         </dd>
       </dl>

@@ -43,7 +43,7 @@
               [ngValue]="formateurOption.id === editForm.get('formateur')!.value?.id ? editForm.get('formateur')!.value : formateurOption"
               *ngFor="let formateurOption of formateursSharedCollection; trackBy: trackFormateurById"
             >
-              {{ formateurOption.id }}
+              {{ formateurOption.id }} {{ formateurOption.nom }}
             </option>
           </select>
         </div>
@@ -56,7 +56,7 @@
               [ngValue]="niveauOption.id === editForm.get('niveau')!.value?.id ? editForm.get('niveau')!.value : niveauOption"
               *ngFor="let niveauOption of niveausSharedCollection; trackBy: trackNiveauById"
             >
-              {{ niveauOption.id }}
+              {{ niveauOption.id }} {{ niveauOption.libelle }}
             </option>
           </select>
         </div>

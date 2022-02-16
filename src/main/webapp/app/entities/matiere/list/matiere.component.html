@@ -49,12 +49,12 @@
           <td>{{ matiere.description }}</td>
           <td>
             <div *ngIf="matiere.formateur">
-              <a [routerLink]="['/formateur', matiere.formateur?.id, 'view']">{{ matiere.formateur?.id }}</a>
+              <a [routerLink]="['/formateur', matiere.formateur?.id, 'view']">{{ matiere.formateur?.id }}  {{ matiere.formateur?.nom }}</a>
             </div>
           </td>
           <td>
             <div *ngIf="matiere.niveau">
-              <a [routerLink]="['/niveau', matiere.niveau?.id, 'view']">{{ matiere.niveau?.id }}</a>
+              <a [routerLink]="['/niveau', matiere.niveau?.id, 'view']">{{ matiere.niveau?.id }} {{ matiere.niveau?.libelle }}</a>
             </div>
           </td>
           <td class="text-right">

@@ -50,7 +50,7 @@
           <td>{{ cours.dateAjout | formatMediumDatetime }}</td>
           <td>
             <div *ngIf="cours.matiere">
-              <a [routerLink]="['/matiere', cours.matiere?.id, 'view']">{{ cours.matiere?.id }}</a>
+              <a [routerLink]="['/matiere', cours.matiere?.id, 'view']">{{ cours.matiere?.id }} {{ cours.matiere?.nom }}</a>
             </div>
           </td>
           <td class="text-right">

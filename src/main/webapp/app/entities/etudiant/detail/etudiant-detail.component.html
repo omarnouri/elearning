@@ -25,7 +25,7 @@
         <dt><span eTranslate="eLearningApp.etudiant.niveau">Niveau</span></dt>
         <dd>
           <div *ngIf="etudiant.niveau">
-            <a [routerLink]="['/niveau', etudiant.niveau?.id, 'view']">{{ etudiant.niveau?.id }}</a>
+            <a [routerLink]="['/niveau', etudiant.niveau?.id, 'view']">{{ etudiant.niveau?.id }} {{ etudiant.niveau?.libelle }} </a>
           </div>
         </dd>
       </dl>

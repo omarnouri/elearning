@@ -25,7 +25,7 @@
         <dt><span eTranslate="eLearningApp.matiere.formateur">Formateur</span></dt>
         <dd>
           <div *ngIf="matiere.formateur">
-            <a [routerLink]="['/formateur', matiere.formateur?.id, 'view']">{{ matiere.formateur?.id }}</a>
+            <a [routerLink]="['/formateur', matiere.formateur?.id, 'view']">{{ matiere.formateur?.id }} {{ matiere.formateur?.nom }}</a>
           </div>
         </dd>
         <dt><span eTranslate="eLearningApp.matiere.niveau">Niveau</span></dt>
@@ -36,6 +36,9 @@
         </dd>
       </dl>
 
+      <div>
+        <e-cours [idMatiere]="matiere.id"></e-cours>
+      </div>
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
         <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span eTranslate="entity.action.back">Back</span>
       </button>

@@ -10,5 +10,6 @@ import { CoursRoutingModule } from './route/cours-routing.module';
   imports: [SharedModule, CoursRoutingModule],
   declarations: [CoursComponent, CoursDetailComponent, CoursUpdateComponent, CoursDeleteDialogComponent],
   entryComponents: [CoursDeleteDialogComponent],
+  exports: [CoursComponent]
 })
 export class CoursModule {}

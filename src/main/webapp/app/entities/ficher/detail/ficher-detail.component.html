@@ -28,7 +28,7 @@
         <dt><span eTranslate="eLearningApp.ficher.cours">Cours</span></dt>
         <dd>
           <div *ngIf="ficher.cours">
-            <a [routerLink]="['/cours', ficher.cours?.id, 'view']">{{ ficher.cours?.id }}</a>
+            <a [routerLink]="['/cours', ficher.cours?.id, 'view']">{{ ficher.cours?.id }} {{ ficher.cours?.titre }}</a>
           </div>
         </dd>
       </dl>
