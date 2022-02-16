@@ -1,0 +1,49 @@
+
+application {
+  config {
+    baseName eLearning,
+    applicationType monolith,
+    packageName com.pds,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    clientFramework angular,
+    jhiPrefix e,
+    languages	[fr, en]
+  }
+  entities *
+}
+
+entity Matiere {
+	nom String required,
+    description String,
+}
+entity Niveau {
+	libelle String required
+}
+entity Cours {
+	titre String required,
+    description String,
+    dateAjout Instant
+}
+entity Formateur {
+	Nom String required,
+    Prenom String required
+}
+entity Etudiant {
+	Nom String required,
+	prenom String required
+}
+
+relationship OneToMany {
+  Matiere to Cours{matiere}
+}
+relationship OneToMany {
+  Niveau to Etudiant{niveau}
+}
+relationship OneToMany {
+  Formateur to Matiere{formateur}
+}
+relationship OneToMany {
+  Niveau to Matiere{niveau}
+}
+    

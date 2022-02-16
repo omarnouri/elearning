@@ -1,0 +1,33 @@
+{
+  "name": "Formateur",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "matiere",
+      "otherEntityRelationshipName": "formateur",
+      "relationshipName": "matiere"
+    }
+  ],
+  "entityTableName": "formateur",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["eLearning"],
+  "changelogDate": "20220214123707"
+}

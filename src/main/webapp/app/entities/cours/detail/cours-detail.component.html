@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cours">
+      <h2 data-cy="coursDetailsHeading"><span eTranslate="eLearningApp.cours.detail.title">Cours</span></h2>
+
+      <hr />
+
+      <e-alert-error></e-alert-error>
+
+      <e-alert></e-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span eTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cours.id }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.cours.titre">Titre</span></dt>
+        <dd>
+          <span>{{ cours.titre }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.cours.description">Description</span></dt>
+        <dd>
+          <span>{{ cours.description }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.cours.dateAjout">Date Ajout</span></dt>
+        <dd>
+          <span>{{ cours.dateAjout | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.cours.matiere">Matiere</span></dt>
+        <dd>
+          <div *ngIf="cours.matiere">
+            <a [routerLink]="['/matiere', cours.matiere?.id, 'view']">{{ cours.matiere?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span eTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cours', cours.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span eTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

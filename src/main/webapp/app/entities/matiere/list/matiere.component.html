@@ -1,0 +1,92 @@
+<div>
+  <h2 id="page-heading" data-cy="MatiereHeading">
+    <span eTranslate="eLearningApp.matiere.home.title">Matieres</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span eTranslate="eLearningApp.matiere.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-matiere"
+        [routerLink]="['/matiere/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span eTranslate="eLearningApp.matiere.home.createLabel"> Create a new Matiere </span>
+      </button>
+    </div>
+  </h2>
+
+  <e-alert-error></e-alert-error>
+
+  <e-alert></e-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="matieres?.length === 0">
+    <span eTranslate="eLearningApp.matiere.home.notFound">No matieres found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="matieres && matieres.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span eTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span eTranslate="eLearningApp.matiere.nom">Nom</span></th>
+          <th scope="col"><span eTranslate="eLearningApp.matiere.description">Description</span></th>
+          <th scope="col"><span eTranslate="eLearningApp.matiere.formateur">Formateur</span></th>
+          <th scope="col"><span eTranslate="eLearningApp.matiere.niveau">Niveau</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let matiere of matieres; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/matiere', matiere.id, 'view']">{{ matiere.id }}</a>
+          </td>
+          <td>{{ matiere.nom }}</td>
+          <td>{{ matiere.description }}</td>
+          <td>
+            <div *ngIf="matiere.formateur">
+              <a [routerLink]="['/formateur', matiere.formateur?.id, 'view']">{{ matiere.formateur?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="matiere.niveau">
+              <a [routerLink]="['/niveau', matiere.niveau?.id, 'view']">{{ matiere.niveau?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/matiere', matiere.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" eTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/matiere', matiere.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" eTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(matiere)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" eTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

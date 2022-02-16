@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="matiere">
+      <h2 data-cy="matiereDetailsHeading"><span eTranslate="eLearningApp.matiere.detail.title">Matiere</span></h2>
+
+      <hr />
+
+      <e-alert-error></e-alert-error>
+
+      <e-alert></e-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span eTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ matiere.id }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.matiere.nom">Nom</span></dt>
+        <dd>
+          <span>{{ matiere.nom }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.matiere.description">Description</span></dt>
+        <dd>
+          <span>{{ matiere.description }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.matiere.formateur">Formateur</span></dt>
+        <dd>
+          <div *ngIf="matiere.formateur">
+            <a [routerLink]="['/formateur', matiere.formateur?.id, 'view']">{{ matiere.formateur?.id }}</a>
+          </div>
+        </dd>
+        <dt><span eTranslate="eLearningApp.matiere.niveau">Niveau</span></dt>
+        <dd>
+          <div *ngIf="matiere.niveau">
+            <a [routerLink]="['/niveau', matiere.niveau?.id, 'view']">{{ matiere.niveau?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span eTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/matiere', matiere.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span eTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

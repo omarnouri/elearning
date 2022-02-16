@@ -1,0 +1,26 @@
+{
+  "eLearningApp": {
+    "etudiant": {
+      "home": {
+        "title": "Etudiants",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Etudiant",
+        "createOrEditLabel": "Créer ou éditer un Etudiant",
+        "notFound": "Aucun Etudiant trouvé"
+      },
+      "created": "Un nouveau Etudiant a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etudiant avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etudiant avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etudiant {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etudiant"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "niveau": "Niveau"
+    }
+  }
+}

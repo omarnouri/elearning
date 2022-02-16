@@ -1,0 +1,26 @@
+{
+  "eLearningApp": {
+    "formateur": {
+      "home": {
+        "title": "Formateurs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Formateur",
+        "createOrEditLabel": "Créer ou éditer un Formateur",
+        "notFound": "Aucun Formateur trouvé"
+      },
+      "created": "Un nouveau Formateur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Formateur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Formateur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Formateur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Formateur"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "matiere": "Matiere"
+    }
+  }
+}

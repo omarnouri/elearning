@@ -1,0 +1,44 @@
+{
+  "name": "Matiere",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "cours",
+      "otherEntityRelationshipName": "matiere",
+      "relationshipName": "cours"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "formateur",
+      "otherEntityRelationshipName": "matiere",
+      "relationshipName": "formateur"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "niveau",
+      "otherEntityRelationshipName": "matiere",
+      "relationshipName": "niveau"
+    }
+  ],
+  "entityTableName": "matiere",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["eLearning"],
+  "changelogDate": "20220214123407"
+}

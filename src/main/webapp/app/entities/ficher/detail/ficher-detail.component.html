@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ficher">
+      <h2 data-cy="ficherDetailsHeading"><span eTranslate="eLearningApp.ficher.detail.title">Ficher</span></h2>
+
+      <hr />
+
+      <e-alert-error></e-alert-error>
+
+      <e-alert></e-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span eTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ficher.id }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.ficher.nom">Nom</span></dt>
+        <dd>
+          <span>{{ ficher.nom }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.ficher.file">File</span></dt>
+        <dd>
+          <div *ngIf="ficher.file">
+            <a (click)="openFile(ficher.file, ficher.fileContentType)" eTranslate="entity.action.open">open</a>
+            {{ ficher.fileContentType }}, {{ byteSize(ficher.file) }}
+          </div>
+        </dd>
+        <dt><span eTranslate="eLearningApp.ficher.cours">Cours</span></dt>
+        <dd>
+          <div *ngIf="ficher.cours">
+            <a [routerLink]="['/cours', ficher.cours?.id, 'view']">{{ ficher.cours?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span eTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ficher', ficher.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span eTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

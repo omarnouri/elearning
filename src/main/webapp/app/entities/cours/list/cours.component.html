@@ -1,0 +1,78 @@
+<div>
+  <h2 id="page-heading" data-cy="CoursHeading">
+    <span eTranslate="eLearningApp.cours.home.title">Cours</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span eTranslate="eLearningApp.cours.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-cours"
+        [routerLink]="['/cours/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span eTranslate="eLearningApp.cours.home.createLabel"> Create a new Cours </span>
+      </button>
+    </div>
+  </h2>
+
+  <e-alert-error></e-alert-error>
+
+  <e-alert></e-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="cours?.length === 0">
+    <span eTranslate="eLearningApp.cours.home.notFound">No cours found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="cours && cours.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span eTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span eTranslate="eLearningApp.cours.titre">Titre</span></th>
+          <th scope="col"><span eTranslate="eLearningApp.cours.description">Description</span></th>
+          <th scope="col"><span eTranslate="eLearningApp.cours.dateAjout">Date Ajout</span></th>
+          <th scope="col"><span eTranslate="eLearningApp.cours.matiere">Matiere</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cours of cours; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/cours', cours.id, 'view']">{{ cours.id }}</a>
+          </td>
+          <td>{{ cours.titre }}</td>
+          <td>{{ cours.description }}</td>
+          <td>{{ cours.dateAjout | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="cours.matiere">
+              <a [routerLink]="['/matiere', cours.matiere?.id, 'view']">{{ cours.matiere?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/cours', cours.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" eTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/cours', cours.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" eTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(cours)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" eTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

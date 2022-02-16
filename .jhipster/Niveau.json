@@ -1,0 +1,34 @@
+{
+  "name": "Niveau",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "etudiant",
+      "otherEntityRelationshipName": "niveau",
+      "relationshipName": "etudiant"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "matiere",
+      "otherEntityRelationshipName": "niveau",
+      "relationshipName": "matiere"
+    }
+  ],
+  "entityTableName": "niveau",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["eLearning"],
+  "changelogDate": "20220214123507"
+}

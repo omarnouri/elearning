@@ -1,0 +1,33 @@
+{
+  "name": "Ficher",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "file",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cours",
+      "otherEntityRelationshipName": "ficher",
+      "relationshipName": "cours"
+    }
+  ],
+  "entityTableName": "ficher",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["eLearning"],
+  "changelogDate": "20220214131409"
+}

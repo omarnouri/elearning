@@ -1,0 +1,26 @@
+{
+  "eLearningApp": {
+    "ficher": {
+      "home": {
+        "title": "Fichers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ficher",
+        "createOrEditLabel": "Create or edit a Ficher",
+        "notFound": "No Fichers found"
+      },
+      "created": "A new Ficher is created with identifier {{ param }}",
+      "updated": "A Ficher is updated with identifier {{ param }}",
+      "deleted": "A Ficher is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ficher {{ id }}?"
+      },
+      "detail": {
+        "title": "Ficher"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "file": "File",
+      "cours": "Cours"
+    }
+  }
+}

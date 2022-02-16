@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="etudiant">
+      <h2 data-cy="etudiantDetailsHeading"><span eTranslate="eLearningApp.etudiant.detail.title">Etudiant</span></h2>
+
+      <hr />
+
+      <e-alert-error></e-alert-error>
+
+      <e-alert></e-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span eTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ etudiant.id }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.etudiant.nom">Nom</span></dt>
+        <dd>
+          <span>{{ etudiant.nom }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.etudiant.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ etudiant.prenom }}</span>
+        </dd>
+        <dt><span eTranslate="eLearningApp.etudiant.niveau">Niveau</span></dt>
+        <dd>
+          <div *ngIf="etudiant.niveau">
+            <a [routerLink]="['/niveau', etudiant.niveau?.id, 'view']">{{ etudiant.niveau?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span eTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/etudiant', etudiant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span eTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
